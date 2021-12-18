@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">VLMovies</string>
+    <string name="error_message">Connection Failed</string>
+</resources>

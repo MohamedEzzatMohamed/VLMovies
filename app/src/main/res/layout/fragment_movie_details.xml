@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="viewModel"
+            type="com.example.vlmovies.ui.moviedetails.MovieDetailsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.moviedetails.MovieDetailsFragment">
+
+
+
+        <ProgressBar
+            android:id="@+id/loading_ProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{viewModel.isSuccess ? View.GONE : viewModel.failed ? View.GONE : View.VISIBLE }"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/error_message_TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_margin="8dp"
+            android:gravity="center_horizontal"
+            android:text="@string/error_message"
+            android:textSize="24sp"
+            android:onClick="@{()-> viewModel.tryGetMovieDetails()}"
+            android:visibility="@{viewModel.failed ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
