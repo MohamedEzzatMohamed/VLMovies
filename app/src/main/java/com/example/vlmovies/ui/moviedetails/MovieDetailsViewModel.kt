@@ -1,11 +1,9 @@
 package com.example.vlmovies.ui.moviedetails
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.vlmovies.model.Movie
 import com.example.vlmovies.model.MovieDetails
 import com.example.vlmovies.network.RetrofitClass
 import com.example.vlmovies.utils.Constant
@@ -32,12 +30,13 @@ class MovieDetailsViewModel : ViewModel() {
     var retry: Int = 0
 
     init {
+        _movieDetails.value = MovieDetails()
         retry = 0
         _isSuccess.value = false
         _failed.value = false
     }
 
-    fun getMovieDetails() {
+    fun getMovieData() {
         _isSuccess.value = false
         viewModelScope.launch {
             try {
@@ -50,18 +49,17 @@ class MovieDetailsViewModel : ViewModel() {
             } catch (error: Exception) {
                 retry += 1
                 if (retry < 3)
-                    getMovieDetails()
+                    getMovieData()
                 else
                     _failed.value = true
             }
         }
-
     }
 
     // function to retry loading data
     fun tryGetMovieDetails(){
         retry = 0
         _failed.value = false
-        getMovieDetails()
+        getMovieData()
     }
 }

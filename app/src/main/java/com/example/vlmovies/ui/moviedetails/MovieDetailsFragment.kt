@@ -41,7 +41,7 @@ class MovieDetailsFragment : Fragment() {
 
         // get movie id and get details
         viewModel.movieId = mArgs.extraMovieId
-        viewModel.getMovieDetails()
+        viewModel.getMovieData()
         // set actionBar title with the movie title that selected
         (activity as AppCompatActivity).supportActionBar?.title = mArgs.extraMovieName
 

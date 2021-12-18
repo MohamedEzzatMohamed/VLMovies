@@ -2,7 +2,9 @@ package com.example.vlmovies.ui.movieslist.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.example.vlmovies.R
 import com.example.vlmovies.databinding.ItemListBinding
 import com.example.vlmovies.model.Movie
 import com.example.vlmovies.ui.movieslist.MoviesListNavigator
@@ -13,7 +15,12 @@ class MovieListAdapter (
     ) : RecyclerView.Adapter<MovieListAdapter.MoviesViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesViewHolder {
-        return MoviesViewHolder(ItemListBinding.inflate(LayoutInflater.from(parent.context), parent,false))
+        val binding: ItemListBinding = DataBindingUtil.inflate(
+            LayoutInflater.from(parent.context),
+            R.layout.item_list, parent, false
+        )
+        return MoviesViewHolder(binding)
+//        return MoviesViewHolder(ItemListBinding.inflate(LayoutInflater.from(parent.context), parent,false))
     }
 
     //bind the views from viewHolder with the data in arrayList
@@ -32,15 +39,6 @@ class MovieListAdapter (
             binding.movie = item
             binding.clickListener = clickListener
             binding.executePendingBindings()
-        }
-
-        companion object {
-            fun from(parent: ViewGroup): MoviesViewHolder {
-                val layoutInflater = LayoutInflater.from(parent.context)
-                val binding = ItemListBinding.inflate(layoutInflater, parent, false)
-
-                return MoviesViewHolder(binding)
-            }
         }
     }
 

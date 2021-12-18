@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">VLMovies</string>
-    <string name="error_message">Connection Failed</string>
+    <string name="error_message">Connection Failed. \n Try again!</string>
+    <string name="for_adult">+18</string>
+    <string name="original_title">Original Title:</string>
+    <string name="original_language">Original Language:</string>
+    <string name="release_date">Release Date:</string>
+    <string name="overview">Overview:</string>
 </resources>
