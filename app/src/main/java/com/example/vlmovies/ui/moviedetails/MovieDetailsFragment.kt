@@ -11,9 +11,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import com.example.vlmovies.R
 import com.example.vlmovies.databinding.FragmentMovieDetailsBinding
-import com.example.vlmovies.databinding.FragmentMovieListBinding
-import com.example.vlmovies.ui.movieslist.MovieListViewModel
-import com.example.vlmovies.ui.movieslist.adapter.MovieListAdapter
 
 class MovieDetailsFragment : Fragment() {
 
@@ -26,7 +23,7 @@ class MovieDetailsFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_movie_details, container, false)
         binding.lifecycleOwner = this

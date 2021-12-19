@@ -12,7 +12,7 @@ interface ApiInterface {
 
     /**
      * get function get list of movies
-     * params[api_key]
+     * params(api_key)
      * response: list of movies
      */
     @GET("movie/popular/")
@@ -22,7 +22,7 @@ interface ApiInterface {
 
     /**
      * post function to verify the user by creating a new user
-     * params[UserDevice] with the data and the code
+     * params(movie_id, api_key) with the data and the code
      * the response contain the user data and the token that will use to post the location
      * the response is a Device if success
      */
